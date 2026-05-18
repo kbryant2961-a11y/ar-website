@@ -17,8 +17,8 @@ const sections = [
   { id: 'who-this-helps', title: 'Who helps' },
   { id: 'story', title: 'Story' },
   { id: 'how-it-works', title: 'Process' },
-  { id: 'faq', title: 'FAQ' },
-  { id: 'consultation', title: 'Callback' },
+  { id: 'faq', title: 'Questions' },
+  { id: 'consultation', title: 'Consultation' },
 ]
 
 function MenuIcon({ open, ...props }) {
