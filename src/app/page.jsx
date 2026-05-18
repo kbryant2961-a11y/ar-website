@@ -87,6 +87,7 @@ function Hero() {
               className="aspect-[4/5] w-full object-cover object-[50%_18%]"
               src={kathyImage}
               alt="Kathy Bryant Powell of A&R Asset Recovery Team"
+              unoptimized
               priority
             />
             <div className="absolute right-4 bottom-4 left-4 rounded-md bg-white/92 p-4 shadow-md backdrop-blur">
@@ -219,6 +220,7 @@ function Story() {
               className="aspect-[4/5] w-full rounded-lg object-cover object-[50%_18%] shadow-lg"
               src={kathyStoryImage}
               alt="Kathy Bryant Powell"
+              unoptimized
             />
           </div>
           <div className="lg:col-span-7">
