@@ -101,7 +101,7 @@ function Hero() {
             </div>
           </div>
         </div>
-        <div className="bg-white pt-4 lg:col-span-7 lg:bg-transparent lg:pt-12 lg:pl-16 xl:pl-20">
+        <div className="bg-white pt-4 pb-10 sm:pb-12 lg:col-span-7 lg:bg-transparent lg:pt-12 lg:pb-0 lg:pl-16 xl:pl-20">
           <div className="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
             <Eyebrow>Free consultation • No upfront fees</Eyebrow>
             <h1 className="mt-5 font-display text-5xl font-extrabold text-[#21181d] sm:text-6xl">
@@ -422,11 +422,15 @@ function Consultation() {
             </div>
           </div>
           <form
-            action={`mailto:${email}`}
+            action="https://formspree.io/f/xeedrlkg"
             method="post"
-            encType="text/plain"
             className="rounded-lg bg-white p-6 shadow-xl lg:col-span-7"
           >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New A&R consultation request"
+            />
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block">
                 <span className="text-sm font-semibold text-[#21181d]">
@@ -471,11 +475,31 @@ function Consultation() {
                 />
               </label>
             </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-5 rounded-lg bg-[#fff8f5] p-4 ring-1 ring-[#f3d8d2]">
+              <label className="flex gap-3">
+                <input
+                  name="contact_consent"
+                  type="checkbox"
+                  required
+                  value="I agree to be contacted by A&R Asset Recovery Team, LLC by phone, text, or email about my inquiry."
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-[#8f2f62] focus:ring-[#8f2f62]"
+                />
+                <span className="text-sm leading-6 text-slate-700">
+                  I agree to be contacted by A&R Asset Recovery Team, LLC by
+                  phone, text, or email about my inquiry.
+                </span>
+              </label>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Your information will be used to review your inquiry and follow
+                up about possible asset recovery, surplus funds, overages, or
+                unclaimed funds. We do not sell your information.
+              </p>
+            </div>
+            <div className="mt-6 text-center">
               <Button type="submit" color="coral">
                 Request a callback
               </Button>
-              <p className="text-sm leading-6 text-slate-500">
+              <p className="mt-3 text-sm leading-6 text-slate-500">
                 Prefer phone? Call {phone}.
               </p>
             </div>
