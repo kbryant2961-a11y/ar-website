@@ -3,11 +3,10 @@ import Image from 'next/image'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
-import { GridPattern } from '@/components/GridPattern'
 import { NavBar } from '@/components/NavBar'
 import { SectionHeading } from '@/components/SectionHeading'
 import kathyImage from '@/images/ar-assets/kathy-powell.jpg'
-import logoImage from '@/images/ar-assets/logo.png'
+import kathyStoryImage from '@/images/ar-assets/kathy-powell-story.jpg'
 
 const phone = '404-939-7882'
 const email = 'renee@arassetrecovery.com'
@@ -78,27 +77,22 @@ function Hero() {
   return (
     <header
       id="hero"
-      className="overflow-hidden bg-[#fff8f5] lg:bg-transparent lg:px-5"
+      className="overflow-hidden bg-[#fff8f5] lg:px-5"
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-1 grid-rows-[auto_1fr] gap-y-14 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-y-20 lg:px-3 lg:pt-16 lg:pb-28 xl:py-28">
-        <div className="relative flex items-end lg:col-span-5 lg:row-span-2">
-          <div className="absolute -top-20 right-1/2 -bottom-12 left-0 z-10 rounded-br-6xl bg-[#2a1722] text-white/10 md:bottom-8 lg:-inset-y-28 lg:right-full lg:left-[-100vw] lg:-mr-40">
-            <GridPattern
-              x="100%"
-              y="100%"
-              patternTransform="translate(112 64)"
-            />
-          </div>
-          <div className="relative z-10 mx-auto w-72 overflow-hidden rounded-xl bg-[#2a1722] shadow-xl ring-1 ring-black/10 md:w-80 lg:w-full">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-y-14 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-y-20 lg:px-3 lg:pt-16 lg:pb-28 xl:py-28">
+        <div className="relative flex items-end lg:col-span-5">
+          <div className="absolute -top-20 right-1/2 -bottom-12 left-0 z-10 rounded-br-6xl bg-[#4a2b3c] md:bottom-8 lg:-inset-y-28 lg:right-full lg:left-[-100vw] lg:-mr-40" />
+          <div className="relative z-10 mx-auto w-72 overflow-hidden rounded-xl bg-[#4a2b3c] shadow-xl ring-1 ring-black/10 md:w-80 lg:w-full">
             <Image
               className="aspect-[4/5] w-full object-cover object-[50%_18%]"
               src={kathyImage}
               alt="Kathy Bryant Powell of A&R Asset Recovery Team"
+              unoptimized
               priority
             />
             <div className="absolute right-4 bottom-4 left-4 rounded-md bg-white/92 p-4 shadow-md backdrop-blur">
               <p className="font-display text-xl font-bold text-[#21181d]">
-                Kathy Bryant Powell
+                Kathy Powell
               </p>
               <p className="mt-1 text-sm leading-5 text-slate-600">
                 Helping families pursue funds they may not know are owed to
@@ -107,34 +101,7 @@ function Hero() {
             </div>
           </div>
         </div>
-        <div className="relative px-4 sm:px-6 lg:col-span-7 lg:pr-0 lg:pb-10 lg:pl-16 xl:pl-20">
-          <div className="hidden lg:absolute lg:-top-28 lg:right-[-100vw] lg:bottom-0 lg:left-[-100vw] lg:block lg:bg-[#fff8f5]" />
-          <div className="relative mx-auto max-w-xl lg:mx-0">
-            <div className="inline-flex flex-col rounded-md bg-[#2a1722] px-4 py-3 shadow-sm">
-              <Image
-                className="h-auto w-56"
-                src={logoImage}
-                alt="A&R Asset Recovery Team"
-              />
-              <span className="mt-2 text-sm font-semibold tracking-[0.08em] text-[#ffd8cd] uppercase">
-                A&R Asset Recovery Team, LLC
-              </span>
-            </div>
-            <figure className="mt-8 border-l-4 border-[#d65f4a] pl-5">
-              <blockquote>
-                <p className="font-display text-2xl font-semibold text-[#21181d]">
-                  “I know what it feels like to think a letter about unclaimed
-                  money must be a hoax. I also know what it can mean when the
-                  check is real.”
-                </p>
-              </blockquote>
-              <figcaption className="mt-3 text-sm font-medium text-slate-600">
-                Kathy Bryant Powell, A&R Asset Recovery Team, LLC
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-        <div className="bg-white pt-14 lg:col-span-7 lg:bg-transparent lg:pt-0 lg:pl-16 xl:pl-20">
+        <div className="bg-white pt-4 pb-10 sm:pb-12 lg:col-span-7 lg:bg-transparent lg:pt-12 lg:pb-0 lg:pl-16 xl:pl-20">
           <div className="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
             <Eyebrow>Free consultation • No upfront fees</Eyebrow>
             <h1 className="mt-5 font-display text-5xl font-extrabold text-[#21181d] sm:text-6xl">
@@ -207,7 +174,7 @@ function Explanation() {
 
 function WhoThisHelps() {
   return (
-    <section id="who-this-helps" className="bg-[#2a1722] py-20 sm:py-28">
+    <section id="who-this-helps" className="bg-[#4a2b3c] py-14 sm:py-20">
       <Container>
         <SectionHeading number="2" dark>
           Who this helps
@@ -244,15 +211,16 @@ function WhoThisHelps() {
 
 function Story() {
   return (
-    <section id="story" className="bg-[#fff8f5] py-20 sm:py-28">
+    <section id="story" className="bg-[#fff8f5] pt-14 pb-10 sm:pt-20 sm:pb-12">
       <Container>
         <SectionHeading number="3">Kathy’s story</SectionHeading>
         <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Image
               className="aspect-[4/5] w-full rounded-lg object-cover object-[50%_18%] shadow-lg"
-              src={kathyImage}
+              src={kathyStoryImage}
               alt="Kathy Bryant Powell"
+              unoptimized
             />
           </div>
           <div className="lg:col-span-7">
@@ -290,7 +258,7 @@ function Story() {
 
 function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-white py-20 sm:py-28">
+    <section id="how-it-works" className="bg-white pt-10 pb-20 sm:pt-12 sm:pb-28">
       <Container>
         <SectionHeading number="4">How it works</SectionHeading>
         <div className="mt-8 max-w-3xl">
@@ -346,10 +314,12 @@ function NoUpfrontFees() {
 
 function Testimonials() {
   return (
-    <section id="testimonials" className="bg-[#fff8f5] py-20 sm:py-28">
+    <section id="testimonials" className="bg-[#fff8f5] pt-14 pb-10 sm:pt-20 sm:pb-12">
       <Container>
-        <SectionHeading number="5">Client words</SectionHeading>
-        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <h2 className="font-display text-4xl font-bold text-[#21181d]">
+          Client words
+        </h2>
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
           {[
             {
               quote:
@@ -384,9 +354,9 @@ function Testimonials() {
 
 function FAQ() {
   return (
-    <section id="faq" className="bg-white py-20 sm:py-28">
+    <section id="faq" className="bg-white pt-12 pb-20 sm:pt-16 sm:pb-28">
       <Container>
-        <SectionHeading number="6">Questions</SectionHeading>
+        <SectionHeading number="5">Questions</SectionHeading>
         <div className="mt-8 grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h2 className="font-display text-4xl font-bold text-[#21181d]">
@@ -399,8 +369,8 @@ function FAQ() {
           </div>
           <div className="divide-y divide-slate-200 lg:col-span-8">
             {faqs.map((faq) => (
-              <details key={faq.question} className="group py-6" open={faq.question === 'What does it cost to start?'}>
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-2xl font-semibold text-[#21181d]">
+              <details key={faq.question} className="group py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold text-[#21181d]">
                   {faq.question}
                   <span className="text-[#8f2f62] group-open:rotate-45">+</span>
                 </summary>
@@ -418,12 +388,12 @@ function FAQ() {
 
 function Consultation() {
   return (
-    <section id="consultation" className="bg-[#2a1722] py-20 sm:py-28">
+    <section id="consultation" className="bg-[#4a2b3c] py-20 sm:py-28">
       <Container>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
-            <SectionHeading number="7" dark>
-              Free consultation
+            <SectionHeading number="6" dark>
+              Consultation
             </SectionHeading>
             <h2 className="mt-8 font-display text-4xl font-bold text-white">
               Ask A&R to check whether you may have a claim.
@@ -452,11 +422,15 @@ function Consultation() {
             </div>
           </div>
           <form
-            action={`mailto:${email}`}
+            action="https://formspree.io/f/xeedrlkg"
             method="post"
-            encType="text/plain"
             className="rounded-lg bg-white p-6 shadow-xl lg:col-span-7"
           >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New A&R consultation request"
+            />
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block">
                 <span className="text-sm font-semibold text-[#21181d]">
@@ -501,11 +475,31 @@ function Consultation() {
                 />
               </label>
             </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-5 rounded-lg bg-[#fff8f5] p-4 ring-1 ring-[#f3d8d2]">
+              <label className="flex gap-3">
+                <input
+                  name="contact_consent"
+                  type="checkbox"
+                  required
+                  value="I agree to be contacted by A&R Asset Recovery Team, LLC by phone, text, or email about my inquiry."
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-[#8f2f62] focus:ring-[#8f2f62]"
+                />
+                <span className="text-sm leading-6 text-slate-700">
+                  I agree to be contacted by A&R Asset Recovery Team, LLC by
+                  phone, text, or email about my inquiry.
+                </span>
+              </label>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Your information will be used to review your inquiry and follow
+                up about possible asset recovery, surplus funds, overages, or
+                unclaimed funds. We do not sell your information.
+              </p>
+            </div>
+            <div className="mt-6 text-center">
               <Button type="submit" color="coral">
                 Request a callback
               </Button>
-              <p className="text-sm leading-6 text-slate-500">
+              <p className="mt-3 text-sm leading-6 text-slate-500">
                 Prefer phone? Call {phone}.
               </p>
             </div>
