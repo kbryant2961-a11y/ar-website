@@ -497,7 +497,7 @@ function Consultation() {
             </div>
             <div className="mt-6 text-center">
               <Button type="submit" color="coral">
-                Request a callback
+                Submit
               </Button>
               <p className="mt-3 text-sm leading-6 text-slate-500">
                 Prefer phone? Call {phone}.
