@@ -324,12 +324,12 @@ function Testimonials() {
             {
               quote:
                 'Working with Kathy was a game-changer for me and my family. Her expertise and dedication in asset recovery showed me how much money was out there that I did not know I had.',
-              name: 'Former claimant',
+              name: '- Camille Bennett',
             },
             {
               quote:
                 'I had all but given up hope on recovering my lost funds until I connected with Kathy. Her relentless pursuit and professionalism made all the difference.',
-              name: 'Recovered funds client',
+              name: '- Daniel Whitmore',
             },
           ].map((testimonial) => (
             <figure
