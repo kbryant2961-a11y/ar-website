@@ -2,6 +2,17 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { SectionHeading } from '@/components/SectionHeading'
+import { headers } from 'next/headers'
+import { after } from 'next/server'
+import {
+  createVisit,
+  normalizeRef,
+  recordVisit,
+  shouldTrack,
+} from '@/lib/qr-tracking.mjs'
+
+export const runtime = 'nodejs'
+export const maxDuration = 60
 
 export const metadata = {
   title: 'Verify Your Letter | A&R Asset Recovery Team',
@@ -31,17 +42,14 @@ const steps = [
   },
 ]
 
-function normalizeRef(ref) {
-  if (!ref || typeof ref !== 'string') {
-    return 'direct'
-  }
-
-  return ref.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 40) || 'direct'
-}
-
 export default async function VerifyPage({ searchParams }) {
   const params = await searchParams
   const ref = normalizeRef(params?.ref)
+  const requestHeaders = await headers()
+  if (shouldTrack(requestHeaders)) {
+    const visit = createVisit(ref, requestHeaders)
+    after(() => recordVisit(visit))
+  }
   const refLabel = ref.toUpperCase()
   const mailto = `mailto:${email}?subject=${encodeURIComponent(
     `Surplus funds inquiry - Ref ${refLabel}`,
@@ -93,8 +101,8 @@ export default async function VerifyPage({ searchParams }) {
                 You are never asked to pay us anything upfront.
               </h2>
               <p className="mt-4 text-lg leading-8 text-slate-600">
-                No upfront fees, no hourly fees, and no out-of-pocket costs.
-                A&R is paid only from funds actually recovered for you: a{' '}
+                No upfront fees, no hourly fees, and no out-of-pocket costs. A&R
+                is paid only from funds actually recovered for you: a{' '}
                 <strong className="font-semibold text-[#21181d]">
                   23% contingency fee
                 </strong>
@@ -221,8 +229,8 @@ export default async function VerifyPage({ searchParams }) {
                       className="mt-1 h-4 w-4 rounded border-slate-300 text-[#8f2f62] focus:ring-[#8f2f62]"
                     />
                     <span className="text-sm leading-6 text-slate-700">
-                      I agree to be contacted by A&R Asset Recovery Team, LLC
-                      by phone, text, or email about my inquiry.
+                      I agree to be contacted by A&R Asset Recovery Team, LLC by
+                      phone, text, or email about my inquiry.
                     </span>
                   </label>
                   <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -254,14 +262,14 @@ export default async function VerifyPage({ searchParams }) {
                   You have choices.
                 </strong>{' '}
                 A&R Asset Recovery Team is not a government agency or law firm.
-                You may contact the county or court directly to verify and
-                claim any funds independently, consult an attorney, or work
-                with our team, whatever feels right to you.
+                You may contact the county or court directly to verify and claim
+                any funds independently, consult an attorney, or work with our
+                team, whatever feels right to you.
               </p>
               <p className="mt-4">
                 Unclaimed surplus funds can eventually revert to the county or
-                state, so time matters. A&R Asset Recovery Team, LLC,
-                Mableton, GA.
+                state, so time matters. A&R Asset Recovery Team, LLC, Mableton,
+                GA.
               </p>
             </div>
           </Container>
